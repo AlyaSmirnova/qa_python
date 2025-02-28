@@ -48,7 +48,6 @@ class TestBooksCollector:
         assert len(collector.books_genre) == 1
         
     @pytest.mark.parametrize('book_name, book_genre, expected_genre', [['Дюна: часть 1', 'Фантастика', 'Фантастика'], ['Дневник Бриджит Джонс', 'Комедии', 'Комедии']])
-
     def test_set_book_genre_with_correct_name_and_valid_genre_is_success(self, book_name, book_genre, expected_genre):
         collector = BooksCollector()
         collector.add_new_book(book_name)
@@ -62,7 +61,6 @@ class TestBooksCollector:
         assert collector.get_book_genre('Дюна: часть 1') == 'Фантастика'
 
     @pytest.mark.parametrize('genre, expected_books', [['Фантастика', ['Дюна: часть 1']], ['Комедии', ['Дневник Бриджит Джонс']]])
-
     def test_get_books_with_specific_genre_valid_names_and_genres_return_existing_genres(self, genre, expected_books):
         collector = BooksCollector()
         collector.add_new_book('Дюна: часть 1')
@@ -93,7 +91,6 @@ class TestBooksCollector:
         assert collector.get_books_for_children() == []
 
     @pytest.mark.parametrize('book_name', ['Острые предметы', 'Безмолвный пациент', 'Каштановый человечек'])
-
     def test_add_book_in_favorites_book_in_books_genre_is_added(self, book_name):
         collector = BooksCollector()
         collector.add_new_book(book_name)
